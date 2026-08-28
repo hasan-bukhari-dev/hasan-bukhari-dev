@@ -1,92 +1,84 @@
-<div align="center">
-
-# Hasan Bukhari
-
-**Computer Science @ University of Southern Mississippi**  
-**Biological Sciences Minor · Software Engineering · Computational Biology · Data**
-
-[Portfolio](https://glitchmatrix-jpg.github.io/hasan-bukhari-portfolio/) ·
-[LinkedIn](https://www.linkedin.com/in/hasan-bukhari) ·
-[Email](mailto:hasan.bukhari.dev@gmail.com)
-
-</div>
-
----
-
-## Profile
-
-- B.S. Computer Science, University of Southern Mississippi
-- Minor in Biological Sciences
-- Undergraduate research in comparative genomics
-- Experience in software engineering, data analytics, automation, and research computing
-- Primary interests: bioinformatics, computational biology, data engineering, machine learning, and research software
-
----
-
-## Current Work
-
-| Area | Focus |
-|---|---|
-| Research | Comparative genomics and chromatin contact prediction |
-| Software | Data-heavy applications, automation, and research tools |
-| Learning | Genomics, algorithms, and machine learning |
-| Development | Python, C++, TypeScript, Kotlin, SQL, R |
-
----
-
-## Selected Projects
-
-| Project | Description | Stack |
-|---|---|---|
-| **AEGIS** | Controlled document intelligence and governance platform with deterministic change detection and audit workflows | Python, FastAPI, React, TypeScript, SQLite |
-| **BioLitGraph** | Biomedical literature retrieval, entity normalization, evidence-network construction, and structured export | Python, Flask, PubMed, PubTator, NetworkX |
-| **CancerShift** | Cross-platform cancer tissue-of-origin classification evaluated across TCGA, GEO, and CPTAC datasets | Python, scikit-learn, pandas |
-| **Chromatin Contact Prediction** | Prediction of Hi-C chromatin contacts from epigenomic signals using chromosome-level evaluation | Python, PyTorch |
-| **HEARTLINE** | Native Android synchronized-lyrics companion | Kotlin, Android |
-| **QTL Analysis Toolkit** | QTL scans, LOD analysis, genotype/phenotype processing, visualization, and spreadsheet export | Python, pandas, Matplotlib, OpenPyXL |
-
----
-
-## GitHub Activity
-
-<div align="center">
-
-<img
-  src="https://github-readme-stats.vercel.app/api?username=hasan-bukhari-dev&show_icons=true&hide_border=true&include_all_commits=true&count_private=false"
-  height="165"
-  alt="GitHub stats"
-/>
-
-<img
-  src="https://github-readme-stats.vercel.app/api/top-langs/?username=hasan-bukhari-dev&layout=compact&hide_border=true&langs_count=8"
-  height="165"
-  alt="Top languages"
-/>
-
-</div>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/network-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="./assets/network-light.svg">
+  <img src="./assets/network-light.svg" width="100%" alt="Hasan Bukhari project network">
+</picture>
 
 <p align="center">
-  <img
-    src="https://github-readme-activity-graph.vercel.app/graph?username=hasan-bukhari-dev&hide_border=true&area=true"
-    width="100%"
-    alt="GitHub activity graph"
-  />
+  <strong>Computer Science · Computational Biology · Data</strong><br>
+  University of Southern Mississippi · B.S. Computer Science · Biological Sciences minor
+</p>
+
+<p align="center">
+  <a href="https://glitchmatrix-jpg.github.io/hasan-bukhari-portfolio/">Portfolio</a>
+  ·
+  <a href="https://www.linkedin.com/in/hasan-bukhari">LinkedIn</a>
+  ·
+  <a href="mailto:hasan.bukhari.dev@gmail.com">Email</a>
 </p>
 
 ---
 
-## Technologies
+## Selected work
 
-<div align="center">
+<details>
+<summary><strong>AEGIS</strong> — controlled-document intelligence and governance</summary>
 
-<img src="https://skillicons.dev/icons?i=py,cpp,r,ts,react,fastapi,flask,kotlin,sqlite,postgres,git,github,vscode,linux" alt="Technologies" />
+Deterministic change detection, trusted state, review workflows, and audit history.
 
-</div>
+`Python` · `FastAPI` · `React` · `TypeScript` · `SQLite`
+
+[Repository](https://github.com/glitchmatrix-jpg/AEGIS)
+</details>
+
+<details>
+<summary><strong>BioLitGraph</strong> — biomedical literature to structured evidence</summary>
+
+Biomedical literature retrieval, entity normalization, evidence-network construction, and structured export.
+
+`Python` · `Flask` · `PubMed` · `PubTator` · `NetworkX`
+</details>
+
+<details>
+<summary><strong>CancerShift</strong> — cancer classification under dataset shift</summary>
+
+Cross-platform cancer tissue-of-origin classification evaluated across TCGA, GEO, and CPTAC datasets.
+
+`Python` · `scikit-learn` · `pandas`
+</details>
+
+<details>
+<summary><strong>Chromatin Contact Prediction</strong> — epigenomics to Hi-C</summary>
+
+Hi-C contact prediction from epigenomic signals with chromosome-level holdouts and leakage-aware evaluation.
+
+`Python` · `PyTorch` · `Hi-C` · `epigenomics`
+</details>
+
+<details>
+<summary><strong>HEARTLINE</strong> — native Android lyric companion</summary>
+
+Native Android synchronized-lyrics companion.
+
+`Kotlin` · `Android`
+
+[Repository](https://github.com/glitchmatrix-jpg/HEARTLINE-Android)
+</details>
+
+<details>
+<summary><strong>QTL Analysis Toolkit</strong> — statistical genomics tooling</summary>
+
+QTL scans, LOD analysis, genotype/phenotype processing, visualization, and spreadsheet export.
+
+`Python` · `pandas` · `Matplotlib` · `OpenPyXL`
+</details>
 
 ---
 
-## Links
+## Core tools
 
-- **Portfolio:** https://glitchmatrix-jpg.github.io/hasan-bukhari-portfolio/
-- **LinkedIn:** https://www.linkedin.com/in/hasan-bukhari
-- **Email:** hasan.bukhari.dev@gmail.com
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=py,cpp,r,ts,react,fastapi,flask,kotlin,sqlite,postgres,git,github,vscode,linux" alt="Core tools">
+</p>
+
+<p align="center"><sub>Profile visual generated from code in this repository.</sub></p>
