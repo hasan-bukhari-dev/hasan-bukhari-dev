@@ -1,4 +1,5 @@
 {
+  "username": "hasan-bukhari-dev",
   "widgets": [
     {
       "widgetId": "header",
@@ -5259,7 +5260,8 @@
         "langsLayout": "bars",
         "langsCount": 10,
         "animationType": "fade-in",
-        "animationPreviewKey": 4
+        "animationPreviewKey": 4,
+        "lockAspectRatio": false
       },
       "locked": false,
       "visible": true,
@@ -5380,5 +5382,6 @@
     "themeMode": "dark",
     "templateStyle": "native"
   },
-  "templateId": "terminal"
+  "templateId": "terminal",
+  "profileSlug": "default"
 }
