@@ -5249,16 +5249,16 @@
       "name": "Languages Widget",
       "position": {
         "x": 24,
-        "y": 416
+        "y": 404
       },
       "size": {
         "width": 524,
-        "height": 208
+        "height": 160
       },
       "config": {
         "hideBorder": true,
         "langsLayout": "bars",
-        "langsCount": 10,
+        "langsCount": 6,
         "animationType": "fade-in",
         "animationPreviewKey": 4,
         "lockAspectRatio": false,
@@ -5273,12 +5273,12 @@
       "widgetId": "tech-stack",
       "name": "Tech-stack Widget",
       "position": {
-        "x": 544,
-        "y": 412
+        "x": 548,
+        "y": 408
       },
       "size": {
         "width": 240,
-        "height": 216
+        "height": 152
       },
       "config": {
         "selectedTechs": [
@@ -5286,12 +5286,9 @@
           "ts",
           "html",
           "py",
-          "rust",
           "cpp",
-          "c",
           "bash",
           "r",
-          "dart",
           "react",
           "fastapi",
           "flask",
@@ -5315,7 +5312,7 @@
       "name": "Contribution-snake Widget",
       "position": {
         "x": 0,
-        "y": 644
+        "y": 552
       },
       "size": {
         "width": 800,
@@ -5341,7 +5338,7 @@
       "name": "Repositories Widget",
       "position": {
         "x": 0,
-        "y": 892
+        "y": 768
       },
       "size": {
         "width": 800,
