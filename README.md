@@ -1,7 +1,7 @@
-<a href="https://gitascii.com">
+﻿<p align="center">
   <img
-    src="https://gitascii.com/api/hasan-bukhari-dev?v=1789080538077"
-    alt="GitAscii Widget"
+    alt="GitASCII Profile for Hasan Bukhari"
+    src="https://gitascii.com/api/hasan-bukhari-dev?v=2"
     width="100%"
   />
-</a>
+</p>
