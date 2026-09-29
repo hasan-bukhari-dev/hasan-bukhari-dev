@@ -14,8 +14,162 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     timeout-minutes: 5
+
     steps:
       - name: Generate and Publish GitAscii SVGs
         uses: Igorcbraz/GitAscii/action@main
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Check out GitAscii output
+        uses: actions/checkout@v4
+        with:
+          ref: gitascii
+          fetch-depth: 1
+
+      - name: Fix Technologies & Skills rendering
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import base64
+          import html
+          import re
+
+          files = [
+              Path("profiles/default/dark.svg"),
+              Path("profiles/default/light.svg"),
+          ]
+
+          def get_attr(tag, name):
+              match = re.search(rf'\b{name}="([^"]*)"', tag)
+              return html.unescape(match.group(1)) if match else ""
+
+          def patch_svg(text):
+              title = "[ TECHNOLOGIES &amp; SKILLS ]"
+
+              title_pos = text.find(title)
+              if title_pos == -1:
+                  return text, False
+
+              group_start = text.rfind("<g ", 0, title_pos)
+              group_end = text.find("</g>", title_pos)
+
+              if group_start == -1 or group_end == -1:
+                  return text, False
+
+              group_end += len("</g>")
+              group = text[group_start:group_end]
+
+              image_match = re.search(
+                  r'<image\b[^>]*href="data:image/svg\+xml;base64,([^"]+)"[^>]*/>',
+                  group,
+                  flags=re.S,
+              )
+
+              if not image_match:
+                  return text, False
+
+              image_tag = image_match.group(0)
+
+              decoded = base64.b64decode(
+                  image_match.group(1)
+              ).decode("utf-8")
+
+              svg_match = re.search(
+                  r'<svg\b([^>]*)>(.*)</svg>\s*$',
+                  decoded,
+                  flags=re.S,
+              )
+
+              if not svg_match:
+                  return text, False
+
+              original_attrs = svg_match.group(1)
+              body = svg_match.group(2)
+
+              # Geometry now comes from the GitAscii widget.
+              for name in (
+                  "x",
+                  "y",
+                  "width",
+                  "height",
+                  "class",
+                  "style",
+                  "preserveAspectRatio",
+              ):
+                  original_attrs = re.sub(
+                      rf'\s+{name}="[^"]*"',
+                      "",
+                      original_attrs,
+                      flags=re.I,
+                  )
+
+              attrs = []
+
+              for name in (
+                  "class",
+                  "x",
+                  "y",
+                  "width",
+                  "height",
+                  "preserveAspectRatio",
+                  "style",
+              ):
+                  value = get_attr(image_tag, name)
+
+                  if value:
+                      attrs.append(
+                          f'{name}="{html.escape(value, quote=True)}"'
+                      )
+
+              attrs_string = " ".join(attrs)
+              original_attrs = original_attrs.strip()
+
+              replacement = (
+                  f'<svg {attrs_string} {original_attrs}>'
+                  f'{body}'
+                  f'</svg>'
+              )
+
+              new_group = (
+                  group[:image_match.start()]
+                  + replacement
+                  + group[image_match.end():]
+              )
+
+              return (
+                  text[:group_start]
+                  + new_group
+                  + text[group_end:]
+              ), True
+
+          for path in files:
+              if not path.exists():
+                  print(f"Missing: {path}")
+                  continue
+
+              original = path.read_text(encoding="utf-8")
+              updated, changed = patch_svg(original)
+
+              if changed:
+                  path.write_text(updated, encoding="utf-8")
+                  print(f"Fixed {path}")
+              else:
+                  print(f"No tech-stack patch found in {path}")
+          PY
+
+      - name: Save GitHub-safe SVGs
+        shell: bash
+        run: |
+          if git diff --quiet -- profiles/default/dark.svg profiles/default/light.svg; then
+            echo "No SVG changes required."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add profiles/default/dark.svg profiles/default/light.svg
+          git commit -m "Fix tech stack icons for GitHub [skip ci]"
+          git push origin HEAD:gitascii
